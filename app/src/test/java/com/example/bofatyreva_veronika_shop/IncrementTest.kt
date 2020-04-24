@@ -24,4 +24,11 @@ class IncrementTest {
     fun multiplicationTest() {
         assertEquals(2, 2 * 2)
     }
+
+    @Test
+    fun subtractionTest() {
+        var i = 1
+        i -= 1
+        assertEquals(2, i)
+    }
 }
