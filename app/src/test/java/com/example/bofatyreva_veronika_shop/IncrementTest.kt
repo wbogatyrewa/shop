@@ -19,4 +19,9 @@ class IncrementTest {
     fun divideTest() {
         assertEquals(2, 4 / 2)
     }
+
+    @Test
+    fun multiplicationTest() {
+        assertEquals(2, 2 * 2)
+    }
 }
