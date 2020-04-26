@@ -12,10 +12,17 @@ class ExampleUnitTest2 {
     @Test
     fun example() {
 
-        val iphoneCase = Product(price = 100.0, discountInPercent = 30)
-        val pricePrinter: PricePrinter = CleanKotlinPricePrinter()
-        val discountIphoneCasePrice = iphoneCase.calcDiscountPrice()
-        pricePrinter.print(discountIphoneCasePrice)
+        val iphoneCase = Product(price = 123.0, discountInPercent = 30)
+        val samsungCase = Product(price = 100.0, discountInPercent = 15)
+
+        val pricePrinter: PricePrinter = ConsolePricePrinter()
+
+        val products = listOf(iphoneCase, samsungCase)
+        val discountPrices = products.map { it.calcDiscountPrice() }
+
+        discountPrices.forEach { discountPrice ->
+            pricePrinter.print(discountPrice)
+        }
     }
 }
 
@@ -42,9 +49,10 @@ class ExampleUnitTest2 {
             * If price have fractional part than it will be rounded for 2 symbols after "."
             */
             fun print(price: Double)
+
         }
 
-        class CleanKotlinPricePrinter : PricePrinter {
+        class ConsolePricePrinter : PricePrinter {
             override fun print(price: Double) {
                 if (price % 1.0 == 0.0) {
                     println("${price.toInt()}₽")
@@ -52,4 +60,6 @@ class ExampleUnitTest2 {
                     println("${String.format("%.2f", price)}₽")
                 }
             }
+
+
         }
