@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">bofatyreva-veronika-shop</string>
+    <string name="app_name">Магазинччик</string>
+    <string name="checkout_header">Оформление заказа</string>
+    <string name="checkoutSum">Итого</string>
+    <string name="checkoutPay">Оплатить</string>
+    <string name="checkoutPhone">Телефон</string>
+    <string name="checkoutName">Имя</string>
+    <string name="checkoutOtchestvo">Отчество</string>
+    <string name="checkoutFamily">Фамилия</string>
+    <string name="Discount">Размер скидки</string>
+    <string name="priceWithoutSales">Цена без скидки</string>
 </resources>
