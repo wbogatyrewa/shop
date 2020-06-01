@@ -5,172 +5,295 @@
     android:id="@+id/checkoutHeader"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/foon"
-    tools:context=".MainActivity">
+    android:background="@android:color/background_light"
+    tools:context=".ui.CheckoutActivity">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="411dp"
+        android:layout_height="653dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical" />
+        </HorizontalScrollView>
+    </ScrollView>
 
     <TextView
         android:id="@+id/header"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
         android:text="@string/checkout_header"
         android:textColor="#000"
+        android:textIsSelectable="false"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/border1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/DiscountPrice"
+        android:id="@+id/PersonData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:text="@string/personData"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/checkoutSumValue"
+        android:layout_width="99dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="15dp"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/DiscountPrice"
+        app:layout_constraintTop_toBottomOf="@+id/checkoutDiscount"
+        tools:ignore="MissingConstraints"
+        tools:text="1000 Р" />
+
+    <EditText
+        android:id="@+id/checkoutName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginRight="120dp"
+        android:ems="10"
+        android:hint="@string/checkoutName"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkoutFamily"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/consist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/Consisting"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkoutWayOfPay"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/checkoutPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginRight="120dp"
+        android:ems="10"
+        android:hint="@string/checkoutPhone"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkoutOtchestvo"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/DiscountPrice"
+        android:layout_width="114dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginRight="140dp"
         android:text="@string/checkoutSum"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.17"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Discount"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/checkoutSumValue"
+        android:id="@+id/checkoutPriceWithoutSales"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
-        android:layout_marginRight="80dp"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="@+id/DiscountPrice"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/DiscountPrice"
-        app:layout_constraintVertical_bias="0.0"
-        tools:text="1000 Р" />
+        app:layout_constraintStart_toEndOf="@+id/PriceWithoutSales"
+        app:layout_constraintTop_toBottomOf="@+id/consist"
+        tools:ignore="MissingConstraints"
+        tools:text="2000 P" />
+
+    <TextView
+        android:id="@+id/WayOfPay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/wayOfPay"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ForExample"
+        tools:ignore="MissingConstraints" />
+
+    <RadioGroup
+        android:id="@+id/checkoutWayOfPay"
+        android:layout_width="351dp"
+        android:layout_height="109dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/WayOfPay">
+
+        <RadioButton
+            android:id="@+id/checkoutPayCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/PayCard"
+            tools:ignore="MissingConstraints" />
+
+        <RadioButton
+            android:id="@+id/checkoutPayCash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/PayCash"
+            tools:ignore="MissingConstraints" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/Discount"
+        android:layout_width="115dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginRight="140dp"
+        android:text="@string/Discount"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PriceWithoutSales"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/border2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/checkoutWayOfPay" />
+
+    <EditText
+        android:id="@+id/checkoutOtchestvo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginRight="120dp"
+        android:ems="10"
+        android:hint="@string/checkoutOtchestvo"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkoutName"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/ForExample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="140dp"
+        android:layout_marginRight="120dp"
+        android:text="@string/ForExample"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkoutPhone"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/checkoutFamily"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginRight="120dp"
+        android:ems="10"
+        android:hint="@string/checkoutFamily"
+        android:inputType="textPersonName"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        tools:ignore="MissingConstraints,TextFields" />
+
+    <TextView
+        android:id="@+id/PriceWithoutSales"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginRight="140dp"
+        android:text="@string/priceWithoutSales"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/consist"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/checkoutDiscount"
+        android:layout_width="98dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Discount"
+        app:layout_constraintTop_toBottomOf="@+id/checkoutPriceWithoutSales"
+        tools:ignore="MissingConstraints"
+        tools:text="50%" />
 
     <Button
         android:id="@+id/checkoutPay"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_width="288dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="10dp"
         android:background="@color/black"
         android:text="@string/checkoutPay"
         android:textColor="#FFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/checkoutFamily"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="208dp"
-        android:ems="10"
-        android:hint="@string/checkoutFamily"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/checkoutName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.308"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header"
-        tools:ignore="TextFields" />
-
-    <EditText
-        android:id="@+id/checkoutPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="@string/checkoutPhone"
-        android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.308"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkoutOtchestvo"
         tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/checkoutName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="@string/checkoutName"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.308"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkoutFamily"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/checkoutOtchestvo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="@string/checkoutOtchestvo"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.308"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkoutName"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/PriceWithoutSales"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="@string/priceWithoutSales"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.208"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header" />
-
-    <TextView
-        android:id="@+id/Discount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="@string/Discount"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.202"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PriceWithoutSales" />
-
-    <TextView
-        android:id="@+id/checkoutPriceWithoutSales"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
-        android:layout_marginRight="80dp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/PriceWithoutSales"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/PriceWithoutSales"
-        app:layout_constraintVertical_bias="0.0"
-        tools:text="2000 P" />
-
-    <TextView
-        android:id="@+id/checkoutDiscount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
-        android:layout_marginRight="80dp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/Discount"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/Discount"
-        app:layout_constraintVertical_bias="0.0"
-        tools:text="50%" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

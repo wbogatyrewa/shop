@@ -7,6 +7,12 @@
     <string name="checkoutName">Имя</string>
     <string name="checkoutOtchestvo">Отчество</string>
     <string name="checkoutFamily">Фамилия</string>
-    <string name="Discount">Размер скидки</string>
+    <string name="Discount">Скидка</string>
     <string name="priceWithoutSales">Цена без скидки</string>
+    <string name="wayOfPay">Способ оплаты</string>
+    <string name="personData">Личные данные</string>
+    <string name="Consisting">Состав заказа</string>
+    <string name="ForExample">Пример, 89999999999</string>
+    <string name="PayCard">Картой</string>
+    <string name="PayCash">Наличными</string>
 </resources>
