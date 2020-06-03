@@ -15,4 +15,8 @@
     <string name="ForExample">Пример, 89999999999</string>
     <string name="PayCard">Картой</string>
     <string name="PayCash">Наличными</string>
+    <string name="catalogHeader">Каталог</string>
+    <string name="detailsBTn">Подробнее</string>
+    <string name="checkoutBtn">Оформить заказ</string>
+    <string name="basketHeader">Корзина</string>
 </resources>

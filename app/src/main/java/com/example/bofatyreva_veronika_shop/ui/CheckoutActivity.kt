@@ -6,18 +6,17 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.widget.EditText
-import android.widget.Toast
-import com.example.bofatyreva_veronika_shop.BasketView
-import com.example.bofatyreva_veronika_shop.ProductsPresenter
+import com.example.bofatyreva_veronika_shop.presenter.ProductsPresenter
 import com.example.bofatyreva_veronika_shop.R
 import com.example.bofatyreva_veronika_shop.ui.CatalogActivity.Companion.IS_USER_AUTH
 import com.example.bofatyreva_veronika_shop.ui.CatalogActivity.Companion.PRODUCT_ID
 import com.example.bofatyreva_veronika_shop.ui.CatalogActivity.Companion.REQUEST_AUTH
 import kotlinx.android.synthetic.main.activity_main.*
 
-class CheckoutActivity : BaseActivity(), BasketView {
+class CheckoutActivity : BaseActivity(), ProductsView {
 
-    private val presenter = ProductsPresenter()
+    private val presenter =
+        ProductsPresenter()
     private var isAuth:Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -4,10 +4,20 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bofatyreva_veronika_shop.R
-import kotlinx.android.synthetic.main.details_layout.*
+import com.example.bofatyreva_veronika_shop.model.Product
+import com.example.bofatyreva_veronika_shop.presenter.BasketPresenter
+import kotlinx.android.synthetic.main.basket_layout.*
 
-class BasketActivity: BaseActivity() {
+class BasketActivity: BaseActivity(), BasketView {
+
+    private val presenter = BasketPresenter()
+
+    private val adapter = BasketAdapter { product ->
+        presenter.removeItem(product)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.basket_layout)
@@ -16,8 +26,13 @@ class BasketActivity: BaseActivity() {
         val savedInt = savedInstanceState?.getInt(SAVE_STATE_INT)
         Log.d(tag, "saved $savedInt")
 
-
+        productRv.layoutManager = LinearLayoutManager(this)
+        productRv.adapter = adapter
+        presenter.attachView(this)
+        presenter.setData()
     }
+
+
 
     override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
         outState.putInt(SAVE_STATE_INT, 22)
@@ -32,6 +47,14 @@ class BasketActivity: BaseActivity() {
             val isUserAuth = data?.extras?.getBoolean(IS_USER_AUTH)
             Log.d(tag, isUserAuth.toString())
         }
+    }
+
+    override fun setCategories(list: List<Product>) {
+        adapter.setData(list)
+    }
+
+    override fun remoteItem(position: Int) {
+        adapter.notifyItemRemoved(position)
     }
 
     companion object {

@@ -1,4 +1,4 @@
-package com.example.bofatyreva_veronika_shop
+package com.example.bofatyreva_veronika_shop.model
 
 class Product(
     /*
@@ -17,4 +17,8 @@ class Product(
     fun calcDiscountPrice(): Double = price * (1 - discountInPercent / 100.0)
 
     fun getProductName(): String = productName
+
+    fun getPrice(): Double = price
+
+    fun getDiscountInPercent(): Int = discountInPercent
 }
