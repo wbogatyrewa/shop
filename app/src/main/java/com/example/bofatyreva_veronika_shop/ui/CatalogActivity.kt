@@ -1,17 +1,34 @@
 package com.example.bofatyreva_veronika_shop.ui
 
+import android.content.Context.MODE_PRIVATE
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bofatyreva_veronika_shop.R
+import com.example.bofatyreva_veronika_shop.data.ViewedProductDaoImpl
+import com.example.bofatyreva_veronika_shop.domain.MainApi
 import com.example.bofatyreva_veronika_shop.presenter.CatalogPresenter
 import kotlinx.android.synthetic.main.catalog_layout.*
+import moxy.ktx.moxyPresenter
+import retrofit2.Retrofit
 
 class CatalogActivity : BaseActivity(), CatalogView {
 
-    private val presenter = CatalogPresenter()
+    private val presenter by moxyPresenter {
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://api.github.com/")
+            .build()
+        val service = retrofit.create(MainApi::class.java)
+        CatalogPresenter(
+            mainApi = service,
+            viewedProductDao = ViewedProductDaoImpl(sharedPreferences)
+        )
+    }
 
     private val adapter = CategoryAdapter { category ->
         presenter.removeItem(category)
@@ -45,8 +62,7 @@ class CatalogActivity : BaseActivity(), CatalogView {
 
         categoryRv.layoutManager = LinearLayoutManager(this)
         categoryRv.adapter = adapter
-        presenter.attachView(this)
-        presenter.setData()
+
     }
 
     override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
@@ -72,6 +88,10 @@ class CatalogActivity : BaseActivity(), CatalogView {
         adapter.notifyItemRemoved(position)
     }
 
+    override fun showProductIds(productIds: List<Long>) {
+        Toast.makeText(this, productIds.joinToString(","), Toast.LENGTH_LONG).show()
+    }
+
     companion object {
         const val PRODUCT_ID = "PRODUCT_ID"
         const val REQUEST_AUTH: Int = 10
@@ -79,3 +99,6 @@ class CatalogActivity : BaseActivity(), CatalogView {
         const val SAVE_STATE_INT = "SAVE_STATE_INT"
     }
 }
+
+val AppCompatActivity.sharedPreferences: SharedPreferences
+    get() = getSharedPreferences("data", MODE_PRIVATE)

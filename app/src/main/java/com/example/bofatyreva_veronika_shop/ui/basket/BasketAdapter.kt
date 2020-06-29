@@ -1,4 +1,4 @@
-package com.example.bofatyreva_veronika_shop.ui
+package com.example.bofatyreva_veronika_shop.ui.basket
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bofatyreva_veronika_shop.R
-import com.example.bofatyreva_veronika_shop.model.Product
-import kotlinx.android.synthetic.main.item_category.view.deleteIv
-import kotlinx.android.synthetic.main.item_product.view.*
+import com.example.bofatyreva_veronika_shop.domain.model.Product
+import kotlinx.android.extensions.LayoutContainer
+import kotlinx.android.synthetic.main.item_product.*
 
 class BasketAdapter(
     private val onDeleteClick: (Product) -> Unit
@@ -21,7 +21,7 @@ class BasketAdapter(
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BasketAdapter.ViewHolder =
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.item_product, parent, false)
         )
@@ -32,14 +32,14 @@ class BasketAdapter(
         holder.bind(basketList[position])
     }
 
-    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(override val containerView: View): RecyclerView.ViewHolder(containerView), LayoutContainer {
 
         @SuppressLint("SetTextI18n")
         fun bind(product: Product) {
-            itemView.productTv.text = product.getProductName()
-            itemView.priceTv.text = "${product.getPrice()} ₽"
-            itemView.discountTv.text = "${product.getDiscountInPercent()} %"
-            itemView.deleteIv.setOnClickListener {
+            productTv.text = product.getProductName()
+            priceTv.text = "${product.getPrice()} ₽"
+            discountTv.text = "${product.getDiscountInPercent()} %"
+            deleteIv.setOnClickListener {
                 onDeleteClick(product)
             }
         }

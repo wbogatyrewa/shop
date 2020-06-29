@@ -1,6 +1,5 @@
 package com.example.bofatyreva_veronika_shop.ui
 
-import com.example.bofatyreva_veronika_shop.model.Product
 import moxy.MvpView
 import moxy.viewstate.strategy.AddToEndSingleStrategy
 import moxy.viewstate.strategy.StateStrategyType

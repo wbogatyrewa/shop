@@ -12,4 +12,7 @@ interface CatalogView : MvpView {
 
     @StateStrategyType(AddToEndSingleStrategy::class)
     fun removeItem(position: Int)
+
+    @StateStrategyType(AddToEndSingleStrategy::class)
+    fun showProductIds(productIds: List<Long>)
 }

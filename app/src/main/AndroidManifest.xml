@@ -12,7 +12,7 @@
 
         <activity android:name=".ui.CheckoutActivity" />
         <activity android:name=".ui.DetailsActivity" />
-        <activity android:name=".ui.BasketActivity" />
+        <activity android:name=".ui.basket.BasketActivity" />
         <activity android:name=".ui.CatalogActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

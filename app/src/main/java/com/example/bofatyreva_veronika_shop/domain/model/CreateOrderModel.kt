@@ -1,4 +1,4 @@
-package com.example.bofatyreva_veronika_shop.model
+package com.example.bofatyreva_veronika_shop.domain.model
 
 /*
 * Модель для создания заказа

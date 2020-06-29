@@ -1,8 +1,8 @@
 package com.example.bofatyreva_veronika_shop.presenter
 
-import com.example.bofatyreva_veronika_shop.model.Basket
-import com.example.bofatyreva_veronika_shop.model.CreateOrderModel
-import com.example.bofatyreva_veronika_shop.model.Product
+import com.example.bofatyreva_veronika_shop.domain.model.Basket
+import com.example.bofatyreva_veronika_shop.domain.model.CreateOrderModel
+import com.example.bofatyreva_veronika_shop.domain.model.Product
 import com.example.bofatyreva_veronika_shop.ui.ProductsView
 import moxy.MvpPresenter
 

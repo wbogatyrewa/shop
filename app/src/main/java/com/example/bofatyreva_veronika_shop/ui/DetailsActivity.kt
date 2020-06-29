@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
 import com.example.bofatyreva_veronika_shop.R
-import kotlinx.android.synthetic.main.catalog_layout.*
+import com.example.bofatyreva_veronika_shop.ui.basket.BasketActivity
 import kotlinx.android.synthetic.main.details_layout.*
 
 class DetailsActivity: BaseActivity() {

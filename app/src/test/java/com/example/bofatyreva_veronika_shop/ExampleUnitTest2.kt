@@ -1,6 +1,6 @@
 package com.example.bofatyreva_veronika_shop
 
-import com.example.bofatyreva_veronika_shop.model.Product
+import com.example.bofatyreva_veronika_shop.domain.model.Product
 import org.junit.Test
 
 /**

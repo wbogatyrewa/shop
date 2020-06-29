@@ -1,4 +1,4 @@
-package com.example.bofatyreva_veronika_shop.model
+package com.example.bofatyreva_veronika_shop.domain.model
 
 class Basket (
     private val listOfProducts: List<Product> = mutableListOf()

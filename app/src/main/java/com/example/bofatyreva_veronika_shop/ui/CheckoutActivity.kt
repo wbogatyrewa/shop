@@ -8,15 +8,16 @@ import android.util.Log
 import android.widget.EditText
 import com.example.bofatyreva_veronika_shop.presenter.ProductsPresenter
 import com.example.bofatyreva_veronika_shop.R
+import com.example.bofatyreva_veronika_shop.domain.MainApi
 import com.example.bofatyreva_veronika_shop.ui.CatalogActivity.Companion.IS_USER_AUTH
 import com.example.bofatyreva_veronika_shop.ui.CatalogActivity.Companion.PRODUCT_ID
 import com.example.bofatyreva_veronika_shop.ui.CatalogActivity.Companion.REQUEST_AUTH
 import kotlinx.android.synthetic.main.activity_main.*
+import retrofit2.Retrofit
 
 class CheckoutActivity : BaseActivity(), ProductsView {
 
-    private val presenter =
-        ProductsPresenter()
+    private val presenter = ProductsPresenter()
     private var isAuth:Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
